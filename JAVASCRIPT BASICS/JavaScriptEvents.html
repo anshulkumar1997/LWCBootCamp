@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Events</title>
+  </head>
+  <body>
+    <h1>JavaScript Events</h1>
+    <script src="JavaScriptEvents.js"></script>
+    <button onclick="clickme()">Click Here</button>
+    <div
+      class="hover"
+      onmouseover="mouseoverhandler()"
+      style="background-color: green; height: 20px; width: 175px"
+      onmouseout="mouseouthandler()"
+    >
+      <h4>Here is the Color Change</h4>
+    </div>
+    <div>
+      <label>Enter Number</label>
+      <input
+        style="margin: 20px"
+        onchange="changehandler(event)"
+        type="number"
+        name="Anshul"
+      />
+    </div>
+  </body>
+</html>
