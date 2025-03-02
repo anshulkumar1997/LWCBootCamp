@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AddEventListner and removeEventListner</title>
+  </head>
+  <body>
+    <h1>AddEventListner and removeEventListner</h1>
+    <script src="EventListeners.js"></script>
+    <div>
+      The addEventListener() is an inbuilt function in JavaScript which takes
+      the event to listen for, and a second argument to be called whenever the
+      described event gets fired. element.addEventListener(event, listener);
+    </div>
+    <div>
+      The removeEventListener() is an inbuilt function that is used to remove
+      removes an event handler that was previously added using the
+      addEventListener() function from the element.
+      element.removeEventListener(event, listener)
+    </div>
+    <div>Parameters</div>
+    <div>
+      event: event can be any valid JavaScript event. Events are used without
+      "on" prefixes like using "click" instead of "onclick. listener(handler
+      function) : Function that respond to the event occurring.
+    </div>
+    <div>
+      <p>
+        <label>Input Parameter</label>
+        <input type="number" onchange="changeHandler(event)" />
+      </p>
+    </div>
+    <h2>Custom Events</h2>
+
+    <div>
+      A custom event can be created using the CustomEvent constructor. This
+      takes two arguments, the first is the name of the event and the second is
+      an object that contains the data. After creating the events, you need to
+      be able to dispatch them. To listen for the custom event, add an event
+      listener to the element you want to listen on.
+      <div>
+        const myEvent = new CustomEvent("myevent", { detail: {}, bubbles: true,
+        cancelable: true, composed: false});
+        document.querySelector("#element").dispatchEvent(myEvent);
+      </div>
+    </div>
+  </body>
+</html>
