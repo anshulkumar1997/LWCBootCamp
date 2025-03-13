@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura and LWC Interoperability</title>
+  </head>
+  <body>
+    <h1>Aura and LWC Interoperability</h1>
+    <div>
+      <ul>
+        Can coexist and interoperate
+      </ul>
+      <ul>
+        Share the same high level services
+      </ul>
+      <ul>
+        Can coexist on the same page
+      </ul>
+      <ul>
+        Share the same Base Lightning components
+      </ul>
+      <ul>
+        Share the same underlying services
+      </ul>
+      <ul>
+        Aura can include LWC but LWC cannot include Aura
+        <div>
+            True - Possible
+
+<c: auracomponent>
+<c-lwc-component> </c-lwc-component>
+</c: auracomponent>
+
+False -- Not possible
+
+<c-lwc-component>
+<c: auracomponent></c: auracomponent>
+</c-lwc-component>
+        </div>
+      </ul>
+    </div>
+  </body>
+</html>
