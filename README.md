@@ -2,10 +2,13 @@
 
 ## What are Lightning Web Component?
 
-A new programming model for building Lightning components that leverages the web standards breakthroughs of the last five years.
-Provides a layer of specialized Salesforce services on top of the core stack
-Can coexist and interoperate with the Aura model
-Unparalleled performance
+#### A new programming model for building Lightning components that leverages the web standards breakthroughs of the last five years.
+
+#### Provides a layer of specialized Salesforce services on top of the core stack
+
+#### Can coexist and interoperate with the Aura model
+
+#### Unparalleled performance
 
 ## Benefits
 
