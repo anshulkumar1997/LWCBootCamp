@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async JS</title>
+  </head>
+  <body>
+    <h1>Async JS</h1>
+    <script src="async.js"></script>
+    <div>
+      <p>
+        The asynchronous style of programming focuses more on improving the
+        performance of the application and callbacks can also be used in such
+        situations.
+      </p>
+      X Callback Hell > The phenomenon which happens when we nest multiple
+      callbacks within a function is called a callback hell. It makes the code
+      very difficult to understand and maintain
+      <div>
+        Ex - getArticles(20, (user) => { console.log("Fetch articles", user);
+        getUserData(user.username, (name) => { console.log(name);
+        getAddress(name, (item) => { console.log(item); // this goes on and on
+        }...)})})
+      </div>
+      <div>Two ways to escape the callback hell in JavaScript</div>
+      <ul>
+        Promises
+      </ul>
+      <div>
+        <ul>
+          A promise is basically a promise to return something at a later time.
+          Either the thing you wanted is returned, or an error.
+        </ul>
+        <ul>
+          Promise are usually used for callouts to get data or do an operation
+          on data (CRUD, etc). All Apex Methods returns Promise
+        </ul>
+        <ul>
+          The Promise object supports two properties: state and result.
+        </ul>
+        <ul>
+          Promises take a callback function as their only parameter which takes
+          two parameters that must be functions. The two functions that are
+          taken as parameters will be executed based on whether the promise has
+          been fufilled or rejected.
+        </ul>
+        <ul>
+          We then need to do something with the promise when it's resolved or
+          rejected which is done using the then() function and making sure we
+          catch if the promise is rejected.
+        </ul>
+      </div>
+      <div>State --- Result</div>
+      <div>"pending" --- undefined</div>
+      <div>"fulfilled" --- a result value</div>
+      <div>"rejected" --- an error object</div>
+      <div>
+        <div>
+          var p = new Promise(function(resolve, reject) { if
+          (successfulCperation) { resolve(someData); } else { reject(Error('some
+          error message')); }})
+        </div>
+        <div>
+          p.then(function (data) { // do something with the data
+          }).catch(function (err) { // handle any errors})
+        </div>
+        getArticles(10) then((user) => getUserName(user.name)) .then((place) =>
+        getAddress(place.city)) .then((data) => console.log("Data", data))
+        .catch((err) => console.log("Error: ", err.message));
+      </div>
+      <ul>
+        Async/Await
+      </ul>
+      <div>
+        <ul>
+          The latest release introduced async functions and a different way of
+          calling native promises. The structure of the promise remains the
+          same, but what changes is how the promise is called
+        </ul>
+        <ul>
+          Async/await is essentially a way to write asynchronous code that looks
+          and behaves more like synchronous code.
+        </ul>
+        <ul>
+          The async keyword is used to define an asynchronous function, which
+          returns a promise. Within this function, you can use the await keyword
+          to pause the execution of the function until a promise is resolved or
+          rejected.
+        </ul>
+        <ul>
+          If an exception is thrown in an async function, the promise it returns
+          will be rejected with that exception. This can be handled by catching
+          errors with try/catch blocks as usual:
+        </ul>
+      </div>
+      <div>
+        async function showImages() { try { const article = await
+        getArticle(10); const place = await getUserData(user.name); const city =
+        await getAddress(place) console.log(city); } catch (err) {
+        console.log("Error: ", err.message); }}
+      </div>
+      <h2>Promise.all</h2>
+      <ul>
+        It is a built-in helper that accepts an array of promises (or generally
+        an iterable).
+      </ul>
+      <ul>
+        If all promises are resolved successfully, then allPromise fulfills with
+        an array containing fulfilled values of the promises. The order of
+        promises in the array does matter - you'll get the fulfilled values in
+        the same order.
+      </ul>
+      <ul>
+        But if at least one promise rejects, then allPromise rejects right away
+        (without waiting for the remaining pending promises to resolve) for the
+        same reason.
+      </ul>
+      <div>
+        ex - const allPromise = Promise.all([promise1, promise2]);
+        allPromise.then(values => { console.log(values); // [resolvedValue1,
+        resolvedValue2] }).catch(error => { console.log(error); // rejectReason
+        of any first rejected promise });
+      </div>
+      <div>
+        const allPromise = Promise. all([promise1, promise2]); try { const
+        values = await allPromise; console.log(values); // [resolvedValue1,
+        resolvedValue2] } catch (error) { console.log(error); // rejectReason of
+        any first reject }
+      </div>
+      <h2>Promise.any</h2>
+      <div>
+        <ul>
+          The function accepts an array (or generally an iterable) of promises
+          as an argument
+        </ul>
+        <ul>
+          The promise returned by Promise.any() fulfills with any first
+          fulfilled promise. Even if some promises get rejected, these
+          rejections
+        </ul>
+        are ignored.
+        <ul>
+          However, if all promises in the input array are rejected or if the
+          input array is empty, then Promise.any() rejects with an aggregate
+          error containing all the rejection reasons of the input promises.
+        </ul>
+        <div>
+          const anyPromise = Promise.any(promises); anyPromise. then(firstValue
+          => { firstValue; // The value of the first fulfilled promise }); const
+          firstValue = await anyPromise; firstValue; // The value of the first
+          fulfilled promise
+        </div>
+      </div>
+      <h2>Promise.race</h2>
+      <ul>
+        The function accepts an array (or generally an iterable) of promises as
+        an argument
+      </ul>
+      <ul>
+        The name of Promise.race() implies that all the promises race against
+        each other with a single winner, either resolved or rejected.
+      </ul>
+      <ul>
+        However, if all promises in the input array are rejected or if the input
+        array is empty, then Promise.any() rejects with an aggregate error
+        containing all the rejection reasons of the input promises.
+      </ul>
+      <div>
+        Promise.race([p1, p2]) .then(value => console. log('Resolved: ${value}')
+        ) .catch(reason => console.log('Rejected: ${reason}'));
+      </div>
+    </div>
+  </body>
+</html>

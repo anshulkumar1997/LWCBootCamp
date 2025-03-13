@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API</title>
+  </head>
+  <body>
+    <script src="FetchApi.js"></script>
+    <h1>Fetch API</h1>
+    <div>
+      <ul>
+        The Fetch API is a modern interface that allows you to make HTTP
+        requests to servers.
+      </ul>
+      <ul>
+        Fetch takes two arguments, the "URL" and an object, "options". Only the
+        'URL' is mandatory, and the method is set to GET by default if not
+        provided.
+      </ul>
+      <ul>
+        Fetch always returns a Promise. So, we have a body that is a "Readable
+        Stream" and to be able to read it, we need to return a JSON format of
+        the response. We use the .json() method for that purpose.
+      </ul>
+      <ul>
+        To extract the data from this response, we can use a .then() method
+        again to get the data to extract the data from this response
+      </ul>
+
+      <div>
+        Eg. fetch( "url" , {options} ) .then( res => res.json() ) .then( data =>
+        console.log(data) ) .catch( err => console.log(err) )
+      </div>
+    </div>
+    <div>
+      <h2>Cat Image</h2>
+      <img class="catimage" src="" alt="Random Cat" />
+    </div>
+  </body>
+</html>
