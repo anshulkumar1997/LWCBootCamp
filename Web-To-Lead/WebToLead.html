@@ -18,13 +18,17 @@
     <!--  ----------------------------------------------------------------------  -->
     <!--  NOTE: Please add the following <FORM> element to your page.             -->
     <!--  ----------------------------------------------------------------------  -->
-        <h1>Create Lead</h1>
+    <!-- URL => https://anshulkumar1997.github.io/LWCBootCamp/Web-To-Lead/WebToLead.html -->    
+    <h1>Create Lead</h1>
         <script src="WebToLead.js" ></script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
     <form
       action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5g000004Frg1"
       method="POST"
       onsubmit="beforesubmit()"
     >
+    <input type=hidden name='captcha_settings' value='{"keyname":"Google_reCAPTCHA","fallback":"true","orgId":"00D5g000004Frg1","ts":""}'>
+
       <input type="hidden" name="oid" value="00D5g000004Frg1" />
       <input
         type="hidden"
@@ -86,6 +90,9 @@
           size="12"
           type="text" /></span
       ><br /> -->
+      <div class="g-recaptcha" 
+      data-callback="captchasuccess()"
+      data-sitekey="6Ldgl_MqAAAAAL3XAnW_n1yr7hC9pGqAH_G6Wtj-"></div><br>
 
       <input type="submit" class="submit" name="submit" />
     </form>
